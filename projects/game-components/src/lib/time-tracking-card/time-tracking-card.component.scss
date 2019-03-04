@@ -1,0 +1,101 @@
+$primary-color: rgba(36, 179, 216, 1);
+$secondary-color: rgba(172, 172, 172, 1);
+$primary-bg-color: rgba(69, 74, 95, 1);
+$secondary-bg-color: rgba(41, 45, 62, 1);
+:host {
+    font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+    font-size: 14px;
+    color: white;
+}
+
+@keyframes progress-bar-fullfill {
+    from {
+        max-width: 0;
+    }
+    to {
+        max-width: 100%;
+    }
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    height: 150px;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    background-color: $primary-bg-color;
+    .card-img {
+        display: flex;
+        width: 260px;
+        height: 100%;
+        img {
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+    .card-info {
+        flex: 1 1 100%;
+        padding: 5px 20px;
+        display: flex;
+        flex-direction: column;
+        .card-info-title {
+            color: $primary-color;
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+        .card-info-plateform {
+            display: flex;
+            flex-direction: row;
+            .plateform-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 12px;
+                >* {
+                    color: $secondary-color;
+                }
+                .plateform-label {
+                    margin-left: 3px;
+                }
+            }
+        }
+        .card-info-spacer {
+            flex-grow: 1;
+        }
+        .card-info-progress-time {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 5px;
+            .progress-time-spacer {
+                flex-grow: 1;
+            }
+            .progress-time-target,
+            .progress-time-spent {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                span {
+                    margin: 0 5px;
+                }
+            }
+        }
+        .card-info-progress-bar {
+            position: relative;
+            height: 10px;
+            margin-bottom: 10px;
+            .progress-bar-background {
+                width: 100%;
+                height: 100%;
+                background-color: $secondary-color;
+                border-radius: 5px;
+                position: absolute;
+            }
+            .progress-bar-fullfill {
+                height: 100%;
+                background-color: $primary-color;
+                border-radius: 5px;
+                position: absolute;
+                animation: progress-bar-fullfill 2s ease;
+            }
+        }
+    }
+}
