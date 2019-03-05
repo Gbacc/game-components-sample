@@ -1,0 +1,12 @@
+<div class="container" *ngIf="data">
+    <div class="game-card" *ngFor="let game of data">
+        <img class="game-card-img" [src]="game.imgUrl" alt="">
+        <div class="game-card-info">
+            <span class="game-card-info-label">{{game.label}}</span>
+            <span class="game-card-info-timespent">
+                <span *ngIf="game.timeSpent.hours">{{game.timeSpent.hours}}h</span>
+                <span *ngIf="game.timeSpent.minutes">{{game.timeSpent.minutes}}m</span>
+            </span>
+        </div>
+    </div>
+</div>

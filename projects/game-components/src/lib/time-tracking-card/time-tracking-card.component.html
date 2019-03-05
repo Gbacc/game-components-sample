@@ -1,39 +1,38 @@
 <div class="card-container" *ngIf="data">
     <div class="card-img">
-        <ng-template #img [ngIf]="data.imgUrl || data.imgBlob" [ngIfElse]="imgPlaceholder">
-            <ng-template #imgUrl [ngIf]="data.imgUrl" [ngIfElse]="imgBlob">
-                <img [src]="data.imgUrl" alt="">
-            </ng-template>
-            <ng-template #imgBlob>blob</ng-template>
+        <ng-template #imgUrl [ngIf]="data.imgUrl" [ngIfElse]="imgPlaceholder">
+            <img [src]="data.imgUrl" alt="">
         </ng-template>
         <ng-template #imgPlaceholder></ng-template>
     </div>
     <div class="card-info">
-        <h1 class="card-info-title">{{data.label}}</h1>
+        <h2 class="card-info-title">{{data.label}}</h2>
         <div class="card-info-plateform" *ngIf="data.plateform">
-            <span class="plateform-container" *ngFor="let plateform of data.plateform">
-                <i class="material-icons md-13" *ngIf="consoles.includes(plateform);else notConsolePlateform">gamepad</i>
-                <ng-template #notConsolePlateform><i class="material-icons md-13">desktop_windows</i></ng-template>                
-                <span class="plateform-label">{{plateform}}</span>
+            <span class="card-info-plateform-container" *ngFor="let plateform of data.plateform">
+                <i class="material-icons md-14"
+                    *ngIf="consoles.includes(plateform);else notConsolePlateform">gamepad</i>
+                <ng-template #notConsolePlateform><i class="material-icons md-13">desktop_windows</i></ng-template>
+                <span class="card-info-plateform-label">{{plateform}}</span>
             </span>
         </div>
         <div class="card-info-spacer"></div>
         <div class="card-info-progress-time">
-            <div class="progress-time-spent">
+            <div class="card-info-progress-time-spent">
                 <i class="material-icons md-21">access_alarm</i>
-                <span *ngIf="data.timeSpent.hours">{{data.timeSpent.hours}} hours </span>
-                <span *ngIf="data.timeSpent.minutes">{{data.timeSpent.minutes}} minutes</span>
+                <span *ngIf="data.timeSpent.hours">{{data.timeSpent.hours}}h </span>
+                <span *ngIf="data.timeSpent.minutes">{{data.timeSpent.minutes}}m</span>
             </div>
-            <div class="progress-time-spacer"></div>
-            <div class="progress-time-target" *ngIf="data.timeTarget">
-                <span *ngIf="data.timeTarget.hours">{{data.timeTarget.hours}} hours </span>
-                <span *ngIf="data.timeTarget.minutes">{{data.timeTarget.minutes}} minutes</span>
+            <div class="card-info-progress-time-spacer"></div>
+            <div class="card-info-progress-time-target" *ngIf="data.timeTarget">
+                <span *ngIf="data.timeTarget.hours">{{data.timeTarget.hours}}h </span>
+                <span *ngIf="data.timeTarget.minutes">{{data.timeTarget.minutes}}m</span>
                 <i class="material-icons md-21">check_circle</i>
             </div>
         </div>
         <div class="card-info-progress-bar" *ngIf="data.timeTarget">
-            <div class="progress-bar-background"></div>
-            <div class="progress-bar-fullfill" [style.width]="data.timeSpent.hours * 100 / data.timeTarget.hours + '%'">
+            <div class="card-info-progress-bar-background"></div>
+            <div class="card-info-progress-bar-fullfill"
+                [style.width]="data.timeSpent.hours * 100 / data.timeTarget.hours + '%'">
             </div>
         </div>
     </div>

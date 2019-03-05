@@ -10,5 +10,4 @@ export class TimeTrackingCardData {
         minutes?: number
     };
     imgUrl?: string;
-    imgBlob?: Blob;
 }

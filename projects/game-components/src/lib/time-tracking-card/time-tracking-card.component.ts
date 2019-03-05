@@ -8,7 +8,7 @@ import { TimeTrackingCardData } from './time-tracking-card.model';
 })
 export class TimeTrackingCardComponent implements OnInit {
     @Input() public data: TimeTrackingCardData;
-    public consoles:Array<string> = ['PS3','PSV'];
+    public consoles: Array<string> = ['PSP', 'PSV', 'PS3', 'PS2', 'PS1', 'PS4', 'X360', 'XONE', 'XBOX', 'XONE', 'Wii', 'WiiU', 'Switch'];
 
     constructor() { }
 

@@ -1,0 +1,9 @@
+.sample-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    >* {
+        margin: 10px 0;
+    }
+}

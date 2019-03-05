@@ -41,20 +41,20 @@ describe('TimeTrackingCardComponent', () => {
 
     it('should show game informations', () => {
         expect(element.querySelector('.card-info-title')).toBeNull();
-        expect(element.querySelector('.progress-time-spent')).toBeNull();
-        expect(element.querySelector('.progress-time-target')).toBeNull();
+        expect(element.querySelector('.card-info-progress-time-spent')).toBeNull();
+        expect(element.querySelector('.card-info-progress-time-target')).toBeNull();
         expect(element.querySelector('.card-img img')).toBeNull();
-        expect(element.querySelectorAll('.plateform-label').length).toBe(0);
+        expect(element.querySelectorAll('.card-info-plateform-label').length).toBe(0);
 
         component.data = data;
         fixture.detectChanges();
 
         expect(element.querySelector('.card-info-title').textContent).toContain('Test games');
-        expect(element.querySelector('.progress-time-spent').textContent).toContain('10 hours 30 minutes');
-        expect(element.querySelector('.progress-time-target').textContent).toContain('20 hours 40 minutes');
+        expect(element.querySelector('.card-info-progress-time-spent').textContent).toContain('access_alarm10h 30m');
+        expect(element.querySelector('.card-info-progress-time-target').textContent).toContain('20h 40mcheck_circle');
         expect(element.querySelector('.card-img img')).toBeDefined();
 
-        const plateformLabel = element.querySelectorAll('.plateform-label');
+        const plateformLabel = element.querySelectorAll('.card-info-plateform-label');
         expect(plateformLabel.length).toBe(2);
         expect(plateformLabel[0].textContent).toBe('PC');
         expect(plateformLabel[1].textContent).toBe('PSV');
